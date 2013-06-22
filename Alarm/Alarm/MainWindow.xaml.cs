@@ -9,9 +9,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Alarm
 {
@@ -23,6 +25,23 @@ namespace Alarm
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void btnAddAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            grdAlarmList.Visibility = System.Windows.Visibility.Collapsed;
+            grdAddAlarm.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void btnCancleAdd_Click(object sender, RoutedEventArgs e)
+        {
+            grdAddAlarm.Visibility = System.Windows.Visibility.Collapsed;
+            grdAlarmList.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
