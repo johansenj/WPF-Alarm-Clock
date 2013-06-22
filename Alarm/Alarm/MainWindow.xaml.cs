@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,9 +23,22 @@ namespace Alarm
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer TimerSP;
         public MainWindow()
         {
+            TimerSP = new DispatcherTimer();
+            TimerSP.Interval = new TimeSpan(0, 0, 1);
+            TimerSP.Tick += new EventHandler(TimerSP_Tick);
+
             InitializeComponent();
+            TimerSP.Start();
+        }
+
+        private void TimerSP_Tick(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            lblTime.Content = now.ToString("t");
+            lblDate.Content = now.ToString("D");
         }
 
         private void Window_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -38,10 +52,16 @@ namespace Alarm
             grdAddAlarm.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void btnCancleAdd_Click(object sender, RoutedEventArgs e)
+        private void btnCancleEditAlarm_Click(object sender, RoutedEventArgs e)
         {
             grdAddAlarm.Visibility = System.Windows.Visibility.Collapsed;
             grdAlarmList.Visibility = System.Windows.Visibility.Visible;
         }
+
+        private void btnAppExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
+
