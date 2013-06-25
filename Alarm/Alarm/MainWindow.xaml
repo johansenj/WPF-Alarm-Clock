@@ -20,9 +20,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnAddAlarm" Content="Add Alarm" HorizontalAlignment="Left" Margin="5,0,0,5" Grid.Row="1" Width="75" BorderThickness="0" Background="#FFD1D1D1" Padding="1,0,1,1" UseLayoutRounding="False" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="50" Click="btnAddAlarm_Click"/>
+            <Button x:Name="btnAddAlarm" Content="Add Alarm" HorizontalAlignment="Left" Margin="5,0,0,5" Grid.Row="1" Width="75" BorderThickness="0" Background="#FFD1D1D1" Padding="1,0,1,1" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="50" Click="btnAddAlarm_Click"/>
         </Grid>
-        <Grid x:Name="grdAddAlarm" Margin="0" Grid.RowSpan="3" Grid.Row="3" MaxWidth="499">
+        <Grid x:Name="grdAddAlarm" Margin="0" Grid.RowSpan="3" Grid.Row="3" MaxWidth="500">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100*"/>
                 <RowDefinition Height="55"/>
@@ -30,9 +30,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnCancleEditAlarm" Content="Cancel" HorizontalAlignment="Left" Margin="5,0,0,5" Grid.Row="1" Width="75" BorderThickness="0" Background="#FF787878" Padding="1,0,1,1" UseLayoutRounding="False" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="50" Click="btnCancleEditAlarm_Click" FontWeight="Bold"/>
-            <Button x:Name="btnDeleteEditAlarm" Content="Delete" HorizontalAlignment="Right" Margin="0,0,90,5" Grid.Row="1" Width="75" BorderThickness="0" Background="#FFFF4444" Padding="1,0,1,1" UseLayoutRounding="False" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="50" FontWeight="Bold"/>
-            <Button x:Name="btnSaveEditAlarm" Content="Save" HorizontalAlignment="Right" Grid.Row="1" Width="75" BorderThickness="0" Background="#FF446FFF" Padding="1,0,1,1" UseLayoutRounding="False" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="50" FontWeight="Bold" VerticalAlignment="Top" Margin="0,0,5,0"/>
+            <Button x:Name="btnCancleEditAlarm" Content="Cancel" HorizontalAlignment="Left" Margin="5,0,0,5" Grid.Row="1" Width="75"  Background="#FF787878" Style="{StaticResource MetroButton}" Height="50" Click="btnCancleEditAlarm_Click" FontWeight="Bold"/>
+            <Button x:Name="btnDeleteEditAlarm" Content="Delete" HorizontalAlignment="Right" Margin="0,0,90,5" Grid.Row="1" Width="75" Background="#FFFF4444" Style="{StaticResource MetroButton}" Height="50" FontWeight="Bold"/>
+            <Button x:Name="btnSaveEditAlarm" Content="Save" HorizontalAlignment="Right" Margin="0,0,5,5" Grid.Row="1" Width="75" Background="#FF446FFF" Style="{StaticResource MetroButton}" Height="50" FontWeight="Bold" VerticalAlignment="Top"/>
         </Grid>
         <Button x:Name="btnExit" IsCancel="True" FontSize="14" Click="btnAppExit_Click">
             <Button.Style>
@@ -85,4 +85,6 @@
     </Grid>
     
     
+
+
 </Window>
