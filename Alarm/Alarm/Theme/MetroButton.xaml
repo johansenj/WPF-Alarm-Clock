@@ -7,9 +7,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                    <Border Name="BorderBackground" BorderThickness="{TemplateBinding BorderThickness}"
                                         BorderBrush="{TemplateBinding BorderBrush}"
-                                        Background="{TemplateBinding Background}"
+                                        Background="#FFF"
                                         CornerRadius="0"
                                         Height="{TemplateBinding Height}"
                                         Width="{TemplateBinding Width}"
@@ -17,12 +17,36 @@
                                         MinWidth="{TemplateBinding MinWidth}"
                                         HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                    
+                    
+                        <Border Name="Border" BorderThickness="{TemplateBinding BorderThickness}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="0"
+                                            Height="{TemplateBinding Height}"
+                                            Width="{TemplateBinding Width}"
+                                            MinHeight="{TemplateBinding MinHeight}"
+                                            MinWidth="{TemplateBinding MinWidth}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalAlignment}">
                         
-                        <ContentControl Content="{TemplateBinding Content}"
-                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        />
+                            <ContentControl Name="BtnContent" Content="{TemplateBinding Content}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            />
+                        </Border>
+
                     </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Opacity" Value=".75" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="Opacity" Value=".75" />
+                            <Setter TargetName="BorderBackground" Property="Background" Value="#000" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

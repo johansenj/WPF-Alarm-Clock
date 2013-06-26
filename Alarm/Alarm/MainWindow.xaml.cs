@@ -48,13 +48,13 @@ namespace Alarm
 
         private void btnAddAlarm_Click(object sender, RoutedEventArgs e)
         {
-            grdAlarmList.Visibility = System.Windows.Visibility.Collapsed;
+            grdAlarmList.Visibility = System.Windows.Visibility.Hidden;
             grdAddAlarm.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void btnCancleEditAlarm_Click(object sender, RoutedEventArgs e)
         {
-            grdAddAlarm.Visibility = System.Windows.Visibility.Collapsed;
+            grdAddAlarm.Visibility = System.Windows.Visibility.Hidden;
             grdAlarmList.Visibility = System.Windows.Visibility.Visible;
         }
 
