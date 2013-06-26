@@ -24,5 +24,18 @@ namespace Alarm
         {
             InitializeComponent();
         }
+
+        public string DisplayTime
+        {
+            get
+            {
+                return "";
+            }
+            set
+            {
+
+            }
+        }
+
     }
 }

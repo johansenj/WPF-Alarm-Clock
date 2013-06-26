@@ -3,15 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="200">
+             mc:Ignorable="d" Height="52" Width="178">
     <Grid x:Name="LayoutRoot">
-        <TextBlock HorizontalAlignment="Center" Margin="10,20,116,29" TextWrapping="Wrap" Text="12" VerticalAlignment="Center" Height="26" Width="24" TextAlignment="Center" FontSize="18" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
-        <TextBlock HorizontalAlignment="Center" Margin="73,20,101,30" TextWrapping="Wrap" Text="00" VerticalAlignment="Center" Height="25" Width="26" TextAlignment="Center" FontSize="18" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" RenderTransformOrigin="0.577,0.4"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="162,20,0,0" VerticalAlignment="Top" Width="28" Height="13"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="162,33,0,0" VerticalAlignment="Top" Width="28" Height="13" RenderTransformOrigin="0.607,-0.25"/>
-        <Label Content=":" HorizontalAlignment="Left" Height="49" Margin="59,5,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ComboBox HorizontalAlignment="Left" Margin="104,19,0,0" VerticalAlignment="Top" Width="41" Height="26"/>
+        <Button x:Name="btnUp" Content="" HorizontalAlignment="Left" Margin="129,15,0,0" VerticalAlignment="Top" Width="28" Height="12" Style="{StaticResource MetroButton}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Alarm;component/Assets/Images/btnUp.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnDown" Content="" HorizontalAlignment="Left" Margin="129,28,0,0" VerticalAlignment="Top" Width="28" Height="12" RenderTransformOrigin="1.893,-0.5" Style="{StaticResource MetroButton}" >
+            <Button.Background>
+                <ImageBrush ImageSource="/Alarm;component/Assets/Images/btnDown.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content=":" HorizontalAlignment="Left" Height="46" Margin="35,1,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="0.571,0.957"/>
+        <ComboBox x:Name="cmbPeriod" HorizontalAlignment="Left" Margin="79,15,0,0" VerticalAlignment="Top" Width="45" Height="25" Background="White" SelectedIndex="0">
+            <ComboBoxItem Background="#FFD1D1D1" Content="AM"/>
+            <ComboBoxItem Background="#FFD1D1D1" Content="PM"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,15,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="25" Background="{x:Null}" SelectionBrush="#FF3399FF" BorderBrush="Black"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="49,15,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}"/>
 
     </Grid>
 </UserControl>
