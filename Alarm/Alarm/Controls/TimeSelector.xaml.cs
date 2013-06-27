@@ -25,8 +25,6 @@ namespace Alarm
         public TimeSelector()
         {
             InitializeComponent();
-            // TODO: Add sounds to alarm choices should be easier for users to manual add sounds
-            // in till option to select custom song is avalible 
         }
 
         /// <summary>
@@ -56,6 +54,12 @@ namespace Alarm
             return cmbPeriod.SelectedItem.ToString();
         }
 
+        /// <summary>
+        /// Sets the time in time select control
+        /// </summary>
+        /// <param name="hour"></param>
+        /// <param name="min"></param>
+        /// <param name="period"></param>
         public void SetTime(int hour, int min, string period)
         {
             txtHour.Text = hour.ToString();
@@ -70,6 +74,18 @@ namespace Alarm
                 cmbPeriod.SelectedIndex = 1;
             }
 
+        }
+
+        /// <summary>
+        /// Resets the selected time to 7:00 am
+        /// <remarks> I have decided to make the default time to 7:00 AM on reset</remarks>
+        /// </summary>
+        public void ResetControl()
+        {
+            hourHasFocus = true;
+            txtHour.Text = "7";
+            txtMin.Text = "00";
+            cmbPeriod.SelectedIndex = 0; // Set period to AM
         }
 
         /// <summary>
@@ -187,7 +203,16 @@ namespace Alarm
         {
             if (IsKeyADigit(e.Key))
             {
+                string curHour = txtHour.Text;
+                int carIndex = txtHour.CaretIndex;
+                string pendingHour = curHour.Insert(carIndex, getKeyPressed(e.Key));
 
+                int pendingIntHour = Convert.ToInt32(pendingHour);
+                if (pendingIntHour >= 0 && pendingIntHour <= 12)
+                {
+                    txtHour.Text = pendingIntHour.ToString();
+                }
+                e.Handled = true;
             }
             else if (IsKeyAChar(e.Key))
             {
@@ -217,7 +242,15 @@ namespace Alarm
         {
             if (IsKeyADigit(e.Key))
             {
-
+                string curMin = txtMin.Text;
+                string pendingMin = curMin.Insert(txtMin.CaretIndex, getKeyPressed(e.Key));
+                
+                int pendingIntMin = Convert.ToInt32(pendingMin);
+                if (pendingIntMin >= 0 && pendingIntMin <= 59)
+                {
+                    txtMin.Text = pendingIntMin.ToString("D2");
+                }
+                e.Handled = true;
             }
             else if(IsKeyAChar(e.Key))
             {
@@ -257,6 +290,30 @@ namespace Alarm
         {
             return (keyPressed >= Key.D0 && keyPressed <= Key.D9) || 
                     (keyPressed >= Key.NumPad0 && keyPressed <= Key.NumPad9);
+        }
+
+        /// <summary>
+        /// Turns Key Class into a string with the correct item in it for letters and numbers
+        /// </summary>
+        /// <param name="keyPressed"></param>
+        /// <returns></returns>
+        private static string getKeyPressed(Key keyPressed)
+        {
+            string keyCodeString = keyPressed.ToString();
+            string key = "";
+            if (keyCodeString.Length == 1)
+            {
+                key = keyCodeString[0].ToString();
+            }
+            else
+            {
+                if (keyCodeString.StartsWith("NumPad") || keyCodeString[0] == 'D')
+                {
+                    key = keyCodeString[keyCodeString.Length - 1].ToString();
+                }
+            }
+
+            return key;
         }
     }
 }
