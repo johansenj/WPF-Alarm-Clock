@@ -78,10 +78,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\DayToggleSelect.xaml.cs">
+      <DependentUpon>DayToggleSelect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SavePreferences\UserPreferences.cs" />
     <Compile Include="Controls\TimeSelector.xaml.cs">
       <DependentUpon>TimeSelector.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\DayToggleSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

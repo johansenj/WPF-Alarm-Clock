@@ -25,39 +25,50 @@ namespace Alarm
         public TimeSelector()
         {
             InitializeComponent();
-        }
-
-        public string DisplayTime
-        {
-            get
-            {
-                return "";
-            }
-            set
-            {
-
-            }
+            // TODO: Add sounds to alarm choices should be easier for users to manual add sounds
+            // in till option to select custom song is avalible 
         }
 
         /// <summary>
-        /// Used to verify that, as time is input, that it is valid, also to allow the use of the
-        /// arrow pad to move the hours up and down
+        /// Returns the set hours as an integer
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TxtHour_KeyDown(object sender, KeyEventArgs e)
+        /// <returns></returns>
+        public int GetHour()
         {
-            e.Handled = true;
+            return Convert.ToInt32(txtHour.Text);
         }
 
         /// <summary>
-        /// Used to verify that, as time is input, that it is valid, also to allow the use of the
-        /// arrow pad to move the minutes up and down
+        /// Returns the set minutes as an integer
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtMin_KeyDown(object sender, KeyEventArgs e)
+        /// <returns></returns>
+        public int GetMin()
         {
+            return Convert.ToInt32(txtMin.Text);
+        }
+
+        /// <summary>
+        /// Returns the set period whether the time is set to AM or PM
+        /// </summary>
+        /// <returns></returns>
+        public string GetPeriod()
+        {
+            return cmbPeriod.SelectedItem.ToString();
+        }
+
+        public void SetTime(int hour, int min, string period)
+        {
+            txtHour.Text = hour.ToString();
+            txtMin.Text = min.ToString();
+            
+            if (period == "AM")
+            {
+                cmbPeriod.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbPeriod.SelectedIndex = 1;
+            }
 
         }
 
@@ -166,6 +177,86 @@ namespace Alarm
             }
         }
 
+        /// <summary>
+        /// Used to verify that, as time is input, that it is valid, also to allow the use of the
+        /// arrow pad to move the hours up and down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtHour_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (IsKeyADigit(e.Key))
+            {
 
+            }
+            else if (IsKeyAChar(e.Key))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                if (e.Key == Key.Down)
+                {
+                    btnDown_Click("TxtHour_KeyDown", e);
+                }
+
+                if (e.Key == Key.Up)
+                {
+                    btnUp_Click("TxtHour_KeyDown", e);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Used to verify that, as time is input, that it is valid, also to allow the use of the
+        /// arrow pad to move the minutes up and down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtMin_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (IsKeyADigit(e.Key))
+            {
+
+            }
+            else if(IsKeyAChar(e.Key))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                if (e.Key == Key.Down)
+                {
+                    btnDown_Click("TxtHour_KeyDown", e);
+                }
+
+                if (e.Key == Key.Up)
+                {
+                    btnUp_Click("TxtHour_KeyDown", e);
+                }
+            }
+        }
+
+        /// <summary>
+        /// used to check if key that was pressed was alphabit
+        /// </summary>
+        /// <param name="keyPressed"></param>
+        /// <returns></returns>
+        private static bool IsKeyAChar(Key keyPressed)
+        {
+            return keyPressed >= Key.A && keyPressed <= Key.Z;
+        }
+
+        /// <summary>
+        /// used to check if key that was pressed was digit either on keyboard or
+        /// number pad
+        /// </summary>
+        /// <param name="keyPressed"></param>
+        /// <returns></returns>
+        private static bool IsKeyADigit(Key keyPressed)
+        {
+            return (keyPressed >= Key.D0 && keyPressed <= Key.D9) || 
+                    (keyPressed >= Key.NumPad0 && keyPressed <= Key.NumPad9);
+        }
     }
 }

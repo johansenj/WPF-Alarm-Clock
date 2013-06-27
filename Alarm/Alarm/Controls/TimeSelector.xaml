@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Height="52" Width="178">
+             mc:Ignorable="d" Height="52" Width="151">
     <Grid x:Name="LayoutRoot">
         <Button x:Name="btnUp" Content="" HorizontalAlignment="Left" Margin="129,18,0,0" VerticalAlignment="Top" Width="19" Height="8" Style="{StaticResource MetroButton}" Click="btnUp_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Alarm;component/Assets/Images/btnUp.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDown" Content="" HorizontalAlignment="Left" Margin="129,29,0,0" VerticalAlignment="Top" Width="19" Height="8" RenderTransformOrigin="1.893,-0.5" Style="{StaticResource MetroButton}" Click="btnDown_Click" >
+        <Button x:Name="btnDown" Content="" HorizontalAlignment="Left" Margin="129,0,0,15" VerticalAlignment="Bottom" Width="19" Height="8" RenderTransformOrigin="1.893,-0.5" Style="{StaticResource MetroButton}" Click="btnDown_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/Alarm;component/Assets/Images/btnDown.png"/>
             </Button.Background>
@@ -20,8 +20,8 @@
             <ComboBoxItem Background="#FFD1D1D1" Content="AM"/>
             <ComboBoxItem Background="#FFD1D1D1" Content="PM"/>
         </ComboBox>
-        <TextBox x:Name="txtHour" HorizontalAlignment="Left" Height="25" Margin="10,15,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="25" Background="{x:Null}" SelectionBrush="#FF3399FF" BorderBrush="Black" KeyDown="TxtHour_KeyDown" GotFocus="txtHour_GotFocus"/>
-        <TextBox x:Name="txtMin" HorizontalAlignment="Left" Height="25" Margin="49,15,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" KeyUp="txtMin_KeyUp" GotFocus="txtMin_GotFocus"/>
+        <TextBox x:Name="txtHour" HorizontalAlignment="Left" Height="25" Margin="10,15,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="25" Background="{x:Null}" SelectionBrush="#FF3399FF" BorderBrush="Black" GotFocus="txtHour_GotFocus" PreviewKeyDown="txtHour_PreviewKeyDown"/>
+        <TextBox x:Name="txtMin" HorizontalAlignment="Left" Height="25" Margin="49,15,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" GotFocus="txtMin_GotFocus" PreviewKeyDown="txtMin_PreviewKeyDown"/>
 
     </Grid>
 </UserControl>
