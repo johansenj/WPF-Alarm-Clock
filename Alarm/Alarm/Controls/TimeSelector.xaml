@@ -5,23 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Height="52" Width="178">
     <Grid x:Name="LayoutRoot">
-        <Button x:Name="btnUp" Content="" HorizontalAlignment="Left" Margin="129,15,0,0" VerticalAlignment="Top" Width="28" Height="12" Style="{StaticResource MetroButton}">
+        <Button x:Name="btnUp" Content="" HorizontalAlignment="Left" Margin="129,18,0,0" VerticalAlignment="Top" Width="19" Height="8" Style="{StaticResource MetroButton}" Click="btnUp_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Alarm;component/Assets/Images/btnUp.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnDown" Content="" HorizontalAlignment="Left" Margin="129,28,0,0" VerticalAlignment="Top" Width="28" Height="12" RenderTransformOrigin="1.893,-0.5" Style="{StaticResource MetroButton}" >
+        <Button x:Name="btnDown" Content="" HorizontalAlignment="Left" Margin="129,29,0,0" VerticalAlignment="Top" Width="19" Height="8" RenderTransformOrigin="1.893,-0.5" Style="{StaticResource MetroButton}" Click="btnDown_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/Alarm;component/Assets/Images/btnDown.png"/>
             </Button.Background>
         </Button>
         <Label Content=":" HorizontalAlignment="Left" Height="46" Margin="35,1,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="0.571,0.957"/>
-        <ComboBox x:Name="cmbPeriod" HorizontalAlignment="Left" Margin="79,15,0,0" VerticalAlignment="Top" Width="45" Height="25" Background="White" SelectedIndex="0">
+        <ComboBox x:Name="cmbPeriod" HorizontalAlignment="Left" Margin="79,15,0,0" VerticalAlignment="Top" Width="45" Height="25" Background="White" SelectedIndex="0" BorderBrush="Black">
             <ComboBoxItem Background="#FFD1D1D1" Content="AM"/>
             <ComboBoxItem Background="#FFD1D1D1" Content="PM"/>
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,15,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="25" Background="{x:Null}" SelectionBrush="#FF3399FF" BorderBrush="Black"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="49,15,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}"/>
+        <TextBox x:Name="txtHour" HorizontalAlignment="Left" Height="25" Margin="10,15,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="25" Background="{x:Null}" SelectionBrush="#FF3399FF" BorderBrush="Black" KeyDown="TxtHour_KeyDown" GotFocus="txtHour_GotFocus"/>
+        <TextBox x:Name="txtMin" HorizontalAlignment="Left" Height="25" Margin="49,15,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" KeyUp="txtMin_KeyUp" GotFocus="txtMin_GotFocus"/>
 
     </Grid>
 </UserControl>
