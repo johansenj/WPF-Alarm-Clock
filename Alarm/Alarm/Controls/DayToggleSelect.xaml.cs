@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Alarm.Controls
+namespace Alarm
 {
     /// <summary>
     /// Interaction logic for DayToggleSelect.xaml
