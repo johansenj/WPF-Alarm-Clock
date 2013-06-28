@@ -34,8 +34,8 @@
             <local:TimeSelector Margin="0" HorizontalAlignment="Center" VerticalAlignment="Top"></local:TimeSelector>
             <Button x:Name="btnCancleEditAlarm" Content="Cancel" HorizontalAlignment="Left" Margin="5,0,0,5" Grid.Row="1" Width="75"  Background="#FFD1D1D1" Style="{StaticResource MetroButton}" Height="50" Click="btnCancleEditAlarm_Click" FontWeight="Bold"/>
             <Button x:Name="btnDeleteEditAlarm" Content="Delete" HorizontalAlignment="Right" Margin="0,0,90,5" Grid.Row="1" Width="75" Background="#FFFF4444" Style="{StaticResource MetroButton}" Height="50" FontWeight="Bold"/>
-            <Button x:Name="btnSaveEditAlarm" Content="Save" HorizontalAlignment="Right" Margin="0,0,5,5" Grid.Row="1" Width="75" Background="#FF446FFF" Style="{StaticResource MetroButton}" Height="50" FontWeight="Bold" VerticalAlignment="Top"/>
-            <local:DayToggleSelect Margin="0,50,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnSaveEditAlarm" Content="Save" HorizontalAlignment="Right" Margin="0,0,5,5" Grid.Row="1" Width="75" Background="#FF446FFF" Style="{StaticResource MetroButton}" Height="50" FontWeight="Bold" VerticalAlignment="Top" Click="btnSaveEditAlarm_Click"/>
+            <local:DayToggleSelect x:Name="daySelector" Margin="0,50,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Button x:Name="btnExit" IsCancel="True" FontSize="14" Click="btnAppExit_Click">
             <Button.Style>

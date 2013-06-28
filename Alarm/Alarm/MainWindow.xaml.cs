@@ -62,6 +62,11 @@ namespace Alarm
         {
             Application.Current.Shutdown();
         }
+
+        private void btnSaveEditAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(daySelector.SelectedDays);
+        }
     }
 }
 
